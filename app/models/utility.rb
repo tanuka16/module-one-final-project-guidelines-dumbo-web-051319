@@ -10,9 +10,10 @@ class Utility
     elsif user.password == password
       puts "Welcome back #{user.name}"
 
-      UserUI.master(user)
+    UserUI.master(user)
     end
   end
+  
   def self.sign_up
     name = $prompt.ask('What is your name?', default: ENV['USER'])
     password = $prompt.mask("Create password:")

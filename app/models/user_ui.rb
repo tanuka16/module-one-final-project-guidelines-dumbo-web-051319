@@ -6,7 +6,7 @@ class UserUI
      elsif choice == 'My_Post'
        self.my_post(user)
      elsif choice == 'ALl_Post'
-
+       self.all_post(user)
      end
   end
 
@@ -19,10 +19,13 @@ class UserUI
     posts.each do |post|
       puts post.content
     end
-
-    
+    # binding.pry
   end
 
+  #double check
+ def self.all_post(user)
+   Post.all.map { |post| post.content  }
+ end
 
 
 end
