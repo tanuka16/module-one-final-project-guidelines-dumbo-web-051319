@@ -5,8 +5,8 @@ class UserUI
        self.create_post(user)
      elsif choice == 'My_Post'
        self.my_post(user)
-     elsif choice == 'ALl_Post'
-       self.all_post(user)
+     elsif choice == 'All_Post'
+       self.all_post
      end
   end
 
@@ -14,6 +14,7 @@ class UserUI
     content = $prompt.ask('What do you want to post?', default: ENV['CONTENT'])
     Post.create(account_id: user.id, content: content)
   end
+
   def self.my_post(user)
     posts = Post.where(account_id: user.id)
     posts.each do |post|
@@ -23,9 +24,5 @@ class UserUI
   end
 
   #double check
- def self.all_post(user)
-   Post.all.map { |post| post.content  }
- end
-
-
+ 
 end

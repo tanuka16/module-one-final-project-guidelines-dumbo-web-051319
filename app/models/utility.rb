@@ -13,7 +13,7 @@ class Utility
     UserUI.master(user)
     end
   end
-  
+
   def self.sign_up
     name = $prompt.ask('What is your name?', default: ENV['USER'])
     password = $prompt.mask("Create password:")
@@ -21,4 +21,8 @@ class Utility
     new_account = Account.where("name == ?", name)[-1]
     puts "Here is you Account ID #{new_account.id}"
   end
+
+  # def self.post
+  #   Post.all.map{|post| post.content}
+  # end
 end
